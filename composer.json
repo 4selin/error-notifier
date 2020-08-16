@@ -1,0 +1,16 @@
+{
+    "name": "4selin/error-notifier",
+    "description": "Notify about PHP errors including OOM error",
+    "authors": [
+        {
+            "name": "4selin",
+            "email": "4selin@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ErrorNotifier\\": "src/"
+        }
+    }
+}
