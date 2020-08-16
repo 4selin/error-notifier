@@ -1,7 +1,7 @@
 {
     "name": "4selin/error-notifier",
     "description": "Notify about PHP errors including OOM error",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "authors": [
         {
             "name": "4selin",

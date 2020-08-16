@@ -1,5 +1,9 @@
 <?php
 
+namespace Selin;
+
+use stdClass;
+
 class ErrorNotifier {
 
 	//based on https://stackoverflow.com/questions/8440439/safely-catch-a-allowed-memory-size-exhausted-error-in-php
