@@ -10,10 +10,14 @@ class ErrorNotifier {
 
 	private $memory;
 	private $last_error;
-	private $email;
+	private $email_to;
+	private $email_from;
+	private $base_url;
 
-	public function __construct( $email ) {
-		$this->email = $email;
+	public function __construct( $email_to, $email_from, $base_url ) {
+		$this->email_to   = $email_to;
+		$this->email_from = $email_from;
+		$this->base_url   = $base_url;
 
 		$this->reserve_memory();
 
@@ -41,9 +45,11 @@ class ErrorNotifier {
 			return;
 		}
 
+//	var_dump(http_response_code(500));
+
 		$subject = 'Error: ' . $this->last_error['message'];
 
-		$url     = WP_HOME . $_SERVER['REQUEST_URI'];
+		$url     = $this->base_url . $_SERVER['REQUEST_URI'];
 		$message = "<a href='$url'>$url</a><br>";
 
 		foreach ( $this->last_error as $key => $value ) {
@@ -51,11 +57,11 @@ class ErrorNotifier {
 		}
 
 		$headers = [
-			'From'         => 'info@otabletkah.ru',
+			'From'         => $this->email_from,
 			'Content-type' => 'text/html; charset=utf-8',//.PHP_EOL,
 		];
 
-		mail( $this->email, $subject, $message, $headers );
+		mail( $this->email_to, $subject, $message, $headers );
 	}
 
 	private function is_anything_for_notify() {
@@ -64,5 +70,3 @@ class ErrorNotifier {
 	}
 
 }
-
-//( new ErrorNotifier( '4selin@gmail.com' ) );
