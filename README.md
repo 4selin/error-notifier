@@ -6,4 +6,4 @@ Notify via email about Fatal Errors including Allowed Memory Size  Exhausted .
 
 `composer require 4selin/error-notifier`
 
-`( new \Selin\ErrorNotifier( $email_to, $email_form, $base_url );`
+`( new \Selin\ErrorNotifier( $email_to, $email_form, $base_url ) );`
