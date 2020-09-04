@@ -56,6 +56,9 @@ class ErrorNotifier {
 			$message .= $key . ': ' . $value . '<br>';
 		}
 
+		$message .=  'ip: ' . $_SERVER['REMOTE_ADDR'] . '<br>';
+		$message .=  'User Agent: ' . $_SERVER['HTTP_USER_AGENT'] . '<br>';
+
 		$headers = [
 			'From'         => $this->email_from,
 			'Content-type' => 'text/html; charset=utf-8',//.PHP_EOL,
